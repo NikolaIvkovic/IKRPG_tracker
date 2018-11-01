@@ -12,6 +12,7 @@ body {
 	font-weight: bold;
 	box-shadow: 1px 1px 4px #888888;
 	cursor: pointer;
+	font-size: 22px;
 }
 .numField {
 	width: 50px;

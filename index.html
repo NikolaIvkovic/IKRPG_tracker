@@ -12,34 +12,17 @@
 				health.clone().appendTo(parent);
 			}
 		}
-		$(document).ready(
-			function() {
-				$('.main').append ('JQUERY IS WORKING!');
-			}
-		);
+
 		$(document).on('click', '.button', 
 			function () {
-				$(this).css('background', 'red');
-			}
-		);
-		$(document).on('click', '.health', 
-			function () {
-				if ($(this).hasClass('damaged')) {
-					$(this).removeClass('damaged');
-				} else {
-					$(this).addClass('damaged');
-				}
-			}
-		);
-		$(document).on('click', '.main',
-			function () {
-			var branchCounter = 1;
+				var branchCounter = 1;
 				var npcTile = $('<div></div>', {class:'npc'});
 				npcTile.append('<div class="npcLabel">'+$('#npcName').val()+'</div>');
 				var statLine = $('<div></div>', {class: 'statLine'});
 				$('.numField').each (
 					function () {
 						var stat = $(this).attr('id');
+
 						var statLabel = $('<div></div>', {class:'statLabel '+stat});
 						statLabel.html(stat.toUpperCase());
 						addHealth (statLabel, 2);
@@ -50,7 +33,7 @@
 						var statCells = $('<ul></ul>', {class:'statCells '+stat});
 						var numVal = parseInt($(this).val()) -2;
 						var branch = $('<li></li>');
-						if (Number.isInteger(numVal / 2)) {
+						if (numVal / 2 === parseInt(numVal / 2)) {
 							addHealth(branch, numVal / 2);
 							branch.clone().append(firstBranch).appendTo(statCells);
 							branch.clone().append(secondBranch).appendTo(statCells);
@@ -70,6 +53,16 @@
 				$('#npcContainer').append(npcTile);
 			}
 		);
+		$(document).on('click', '.health', 
+			function () {
+				if ($(this).hasClass('damaged')) {
+					$(this).removeClass('damaged');
+				} else {
+					$(this).addClass('damaged');
+				}
+			}
+		);
+
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/style.css">
@@ -86,8 +79,8 @@
 			<td>INT: <input class="numField" type="number" id="int"></td>
 			</tr>
 		</table>
-
-		<div class="button">CREATE NPC</div>
+<br>
+		<input type="submit" value="CREATE NPC" class="button">
 
 		<div id="npcContainer">
 			

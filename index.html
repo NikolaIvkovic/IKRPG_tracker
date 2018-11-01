@@ -1,0 +1,93 @@
+<html>
+	<head>
+	 <meta charset="UTF-8"> 
+		<title>
+		IKRPG Damage Tracker
+		</title>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script>
+		function addHealth(parent, num) {
+			var health = $('<div></div>', {class: 'health'});
+			for (var i = 0; i < num; i++) {
+				health.clone().appendTo(parent);
+			}
+		}
+		$(document).ready(
+			function() {
+				$('.main').append ('JQUERY IS WORKING!');
+			}
+		);
+		$(document).on('click', '.button', 
+			function () {
+				var branchCounter = 1;
+				var npcTile = $('<div></div>', {class:'npc'});
+				npcTile.append('<div class="npcLabel">'+$('#npcName').val()+'</div>');
+				var statLine = $('<div></div>', {class: 'statLine'});
+				$('.numField').each (
+					function () {
+						var stat = $(this).attr('id');
+						var statLabel = $('<div></div>', {class:'statLabel '+stat});
+						statLabel.html(stat.toUpperCase());
+						addHealth (statLabel, 2);
+						var firstBranch = branchCounter;
+						branchCounter++;
+						var secondBranch = branchCounter;
+						branchCounter++;
+						var statCells = $('<ul></ul>', {class:'statCells '+stat});
+						var numVal = parseInt($(this).val()) -2;
+						var branch = $('<li></li>');
+						if (Number.isInteger(numVal / 2)) {
+							addHealth(branch, numVal / 2);
+							branch.clone().append(firstBranch).appendTo(statCells);
+							branch.clone().append(secondBranch).appendTo(statCells);
+						}else {
+							var half = Math.floor(numVal / 2);
+							addHealth(branch, half + 1);
+							branch.clone().append(firstBranch).appendTo(statCells);
+							branch.empty();
+							addHealth(branch, half);
+							branch.clone().append(secondBranch).appendTo(statCells);
+						}
+						statLabel.appendTo(statLine);
+						statCells.appendTo(statLine);
+					}
+				);
+				npcTile.append(statLine);
+				$('#npcContainer').append(npcTile);
+			}
+		);
+		$(document).on('click', '.health', 
+			function () {
+				if ($(this).hasClass('damaged')) {
+					$(this).removeClass('damaged');
+				} else {
+					$(this).addClass('damaged');
+				}
+			}
+		);
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+	<div class="main">
+		<table class="npcForm">
+			<tr>
+			<td colspan="3">Name: <input type="text" id="npcName"></td>
+			</tr>
+			<tr>
+			<td>PHY: <input class="numField" type="number"  id="phy"></td>
+			<td>AGL: <input class="numField" type="number"  id="agl"></td>
+			<td>INT: <input class="numField" type="number" id="int"></td>
+			</tr>
+			<tr>
+			<td colspan="3"><div class="button">CREATE NPC</div></td>
+			</tr>
+		</table>
+		<br>
+		<div id="npcContainer">
+			
+		</div>
+	</div>
+	</body>
+</html>

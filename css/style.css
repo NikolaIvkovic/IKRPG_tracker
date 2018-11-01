@@ -1,0 +1,112 @@
+body {
+	background-color: white;
+	font-family: MS Sans Serif;
+}
+.button{
+	display: inline-block;
+	background: #54a5ec;
+	color: white;
+	padding: 5px;
+	border: 2px solid white;
+	border-radius: 7px;
+	font-weight: bold;
+	box-shadow: 1px 1px 4px #888888;
+	cursor: pointer;
+}
+.numField {
+	width: 50px;
+	}
+.npcForm{
+text-align: center;
+display: inline-block;
+}
+.health {
+	display:inline-block;
+	margin-right:2px;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 20px;
+	height: 20px;
+	background:white;
+}
+.damaged {
+background:grey !important;
+}
+.npc {
+color: white;
+display: inline-block;
+}
+.npcLabel{
+background: grey;
+}
+.phy {
+background:#4b94d4;
+}
+.int {
+background:#4e9e42;
+}
+.agl{
+background:#c84848;
+}
+.statLine{
+height: 50px;
+display: table;
+overflow: hidden;
+}
+.statLabel {
+height: 100%;
+display: table-cell;
+vertical-align: middle;
+}
+.statCells{
+display: table-cell;
+list-style-type: none;
+padding: 0;
+margin: 0;
+text-align: left;
+}
+@media (min-width:160px) {
+.main {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border: 2px solid gray;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.contentWrapper{
+text-align: left;
+}
+
+
+}
+@media (min-width:1000px) {
+	.main {
+		width: 500px;
+		height: 600px;
+		overflow: auto;
+		position: absolute;
+		top:0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border: 2px solid gray;
+		border-radius: 10px;
+		text-align: center;
+	}
+	input [type=number] {
+	width: 50px;
+	}
+	.contentWrapper{
+	text-align: left;
+	}
+}
+

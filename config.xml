@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "niiv18IKRPGTracker"
+        versionCode = "1"
+        version     = "1.0.0" >
+
+    <name>IKRPG Tracker</name>
+
+    <description>
+        Health tracker for IKRPG NPCs
+    </description>
+
+    <author>
+     Nikola Ivkovic
+    </author>
+
+<plugin name="cordova-plugin-whitelist" />
+<access origin="*" />
+</widget>

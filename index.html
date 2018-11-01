@@ -19,7 +19,21 @@
 		);
 		$(document).on('click', '.button', 
 			function () {
-				var branchCounter = 1;
+				$(this).css('background', 'red');
+			}
+		);
+		$(document).on('click', '.health', 
+			function () {
+				if ($(this).hasClass('damaged')) {
+					$(this).removeClass('damaged');
+				} else {
+					$(this).addClass('damaged');
+				}
+			}
+		);
+		$(document).on('click', '.main',
+			function () {
+			var branchCounter = 1;
 				var npcTile = $('<div></div>', {class:'npc'});
 				npcTile.append('<div class="npcLabel">'+$('#npcName').val()+'</div>');
 				var statLine = $('<div></div>', {class: 'statLine'});
@@ -56,20 +70,6 @@
 				$('#npcContainer').append(npcTile);
 			}
 		);
-		$(document).on('click', '.health', 
-			function () {
-				if ($(this).hasClass('damaged')) {
-					$(this).removeClass('damaged');
-				} else {
-					$(this).addClass('damaged');
-				}
-			}
-		);
-		$(document).on('click', '.main',
-			function () {
-			$(this).css('background', 'red');
-			}
-		);
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/style.css">
@@ -86,9 +86,9 @@
 			<td>INT: <input class="numField" type="number" id="int"></td>
 			</tr>
 		</table>
-		<br>
+
 		<div class="button">CREATE NPC</div>
-		<br>
+
 		<div id="npcContainer">
 			
 		</div>
